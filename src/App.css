@@ -1,0 +1,81 @@
+/* New global styles for the layout */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a14; /* Dark blue/black fallback color */
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* This is the main container for the entire app */
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* This class is applied to the LightRays component */
+.app-background {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Places the background behind everything else */
+}
+
+/* This wraps all the content that appears on top of the background */
+.content-wrap {
+  position: relative;
+  z-index: 1; /* Places content in front of the background */
+  height: 100%;
+  overflow-y: auto; /* Allows content to scroll if it's too long */
+}
+
+/* Updated header style for the navigation bar */
+.app-header {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  /* Removing old styles that are no longer needed */
+  background-color: transparent;
+  min-height: auto;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-size: inherit;
+}
+
+
+/* You can keep or remove the default CRA styles below if you don't use them */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
