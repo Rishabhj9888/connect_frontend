@@ -20,7 +20,7 @@ const StudentDashboard = () => {
     setNameFilter("");
     setCompanyFilter("");
     try {
-      const res = await fetch(`http://localhost:8080/api/alumni/search/${college}`);
+      const res = await fetch(`https://connect-backend-2.onrender.com/api/alumni/search/${college}`);
       if (!res.ok) throw new Error(await res.text() || "Failed to search alumni");
       const data = await res.json();
       setAlumni(data);

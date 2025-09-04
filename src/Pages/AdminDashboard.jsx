@@ -72,7 +72,7 @@ const AdminDashboard = () => {
 
   const fetchAllAlumni = (page = 0) => {
     setActiveView('all');
-    const url = `http://localhost:8080/api/alumni/all?page=${page}&size=${PAGE_SIZE}`;
+    const url = `https://connect-backend-2.onrender.com/api/alumni/all?page=${page}&size=${PAGE_SIZE}`;
     apiCall(url).then(data => {
       setAlumni(data.content || []);
       setCurrentPage(data.number);
@@ -86,7 +86,7 @@ const AdminDashboard = () => {
 
   const searchAlumni = () => {
     if (!college) return setMessage("Please enter a college name.");
-    apiCall(`http://localhost:8080/api/alumni/search/${college}`).then(data => {
+    apiCall(`https://connect-backend-2.onrender.com/api/alumni/search/${college}`).then(data => {
       setAlumni(data);
       if (data.length === 0) setMessage("No alumni found for this college.");
     }).catch(() => setAlumni([]));
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
   const addAlumni = async (e) => {
     e.preventDefault();
     try {
-      const newAlumnus = await apiCall("http://localhost:8080/api/alumni/add", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+      const newAlumnus = await apiCall("https://connect-backend-2.onrender.com/api/alumni/add", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
       setMessage("✅ Alumni added successfully");
       setAlumni(prev => [newAlumnus, ...prev]);
       setForm({ name: "", email: "", company: "", designation: "", collegeName: "", specialization: "" });
